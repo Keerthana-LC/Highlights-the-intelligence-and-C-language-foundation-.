@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char input[100];
+
+    printf("Welcome to AI Boat Chat!\n");
+    printf("Type something (type 'exit' to quit):\n");
+
+    while (1) {
+        printf("\nYou: ");
+        fgets(input, sizeof(input), stdin);
+        input[strcspn(input, "\n")] = 0; // Remove newline
+
+        // Exit condition
+        if (strcmp(input, "exit") == 0) {
+            printf("AI Boat: Goodbye! Safe sailing!\n");
+            break;
+        }
+
+        // Basic responses
+        if (strstr(input, "hello") || strstr(input, "hi")) {
+            printf("AI Boat: Hello there! How can I assist you today?\n");
+        } else if (strstr(input, "how are you")) {
+            printf("AI Boat: I'm just a boat, but I'm floating fine! 😄\n");
+        } else if (strstr(input, "weather")) {
+            printf("AI Boat: I can't check real weather, but I hope it's sunny!\n");
+        } else if (strstr(input, "help")) {
+            printf("AI Boat: You can ask me about sailing, directions, or just chat!\n");
+        } else {
+            printf("AI Boat: Hmm... I didn't quite understand that. Try something else!\n");
+        }
+    }
+
+    return 0;
+}
